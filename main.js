@@ -242,7 +242,7 @@ const pets = [
       imageUrl: "http://lsae2.iypcdn.com/static//modules/uploads/photos/language1/dino-live-22.jpg?119"
     }
   ];
-  
+
   const renderToDom = (divId, htmlToRender) => {
     const selectedDiv = document.querySelector(divId);
     selectedDiv.innerHTML = htmlToRender;
@@ -340,6 +340,7 @@ const pets = [
   const startApp = () => {
     cardsOnDom(pets);
   }
+
 
 
   startApp();
