@@ -10,7 +10,6 @@ body {
 
 .card {
   margin: 10px;
-  justify-content: center;
 }
 
 form {
@@ -18,5 +17,5 @@ form {
 }
 
 .buttons {
-  padding-left: 480px;
+  padding-left: 385px;
 }
