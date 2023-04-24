@@ -243,23 +243,103 @@ const pets = [
     }
   ];
   
-  const targetingApp = document.querySelector("#app");
+  const renderToDom = (divId, htmlToRender) => {
+    const selectedDiv = document.querySelector(divId);
+    selectedDiv.innerHTML = htmlToRender;
+  };
   
-
+ const cardsOnDom = (array) => {
   let domString = "";
-
-  for (const pet of pets) {
+  for (const pet of array) {
     domString += `<div class="card" style="width: 18rem;">
     <img src=${pet.imageUrl} class="card-img-top" alt=${pet.name}>
     <div class="card-body">
     <h5 class="card-title">${pet.name}</h5>
     <p>Type: ${pet.type}</p>
-     <p class="card-text">${pet.specialSkills}</p>
+     <p class="card-text">${pet.specialSkill}</p>
      <p>Type: ${pet.type}</p>
      <p>Color: ${pet.color}</p>
+     <button class="btn btn-danger" id="delete--${pet.id}">Delete</button>
     </div>
   </div>`;
   };
-  console.log("domstring", domString);
 
-  targetingApp.innerHTML = domString;
+  console.log("domString")
+  renderToDom("#app", domString);
+ }; 
+ cardsOnDom(pets)
+
+  const filter = (array, pettype) => {
+    const animalArray = [];
+    for (const pet of array) {
+      if (pet.type === pettype) {
+        animalArray.push(pet);
+      };
+    };
+
+    return animalArray
+  };
+
+  const dogBtn = document.querySelector('#dogbtn');
+  const catBtn = document.querySelector('#catbtn')
+  const dinoBtn = document.querySelector('#dinobtn')
+  const showAll = document.querySelector('#showall')
+
+  showAll.addEventListener('click', () => {
+    cardsOnDom(pets);
+  })
+
+  dogBtn.addEventListener('click', () => {
+    const dogs = filter(pets, 'dog');
+    cardsOnDom(dogs);
+  })
+
+  catBtn.addEventListener('click', () => {
+    const cats = filter(pets, 'cat');
+    cardsOnDom(cats);
+  })
+
+  dinoBtn.addEventListener('click', () => {
+    const dino = filter(pets, 'dino');
+    cardsOnDom(dino);
+  })
+
+  const form = document.querySelector('form');
+
+  const createPet = (e) => {
+    e.preventDefault();
+
+  const newPetObj = {
+    id: pets.length + 1,
+    name: document.querySelector("#name").value,
+    type: document.querySelector("#type").value,
+    color: document.querySelector("#color").value,
+    specialSkill: document.querySelector("#specialSkill").value,
+    imageUrl: document.querySelector("#imageUrl").value,
+
+  }
+
+  pets.push(newPetObj);
+  cardsOnDom(pets);
+  form.reset();
+  }
+
+  form.addEventListener('submit', createPet);
+
+  const app = document.querySelector("#app");
+
+  app.addEventListener('click', (e) => {
+    if (e.target.id.includes("delete")) {
+      const [, id] = e.target.id.split("--");
+      const index = pets.findIndex(e => e.id === Number(id));
+      pets.splice(index, 1);
+      cardsOnDom(pets);
+    }
+  });
+
+  const startApp = () => {
+    cardsOnDom(pets);
+  }
+
+
+  atartApp();
