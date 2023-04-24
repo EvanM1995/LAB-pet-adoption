@@ -342,4 +342,4 @@ const pets = [
   }
 
 
-  atartApp();
+  startApp();
