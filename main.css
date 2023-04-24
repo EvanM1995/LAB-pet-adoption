@@ -1,3 +1,22 @@
 body {
-  background-color: aquamarine;
+  background-color: blanchedalmond;
+}
+
+#app {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.card {
+  margin: 10px;
+  justify-content: center;
+}
+
+form {
+  margin: 20px;
+}
+
+.buttons {
+  padding-left: 480px;
 }
