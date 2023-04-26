@@ -1,5 +1,6 @@
 body {
-  background-color: blanchedalmond;
+  background-image: url("https://media.istockphoto.com/id/922637404/vector/dog-paw-print-seamless-template-for-your-design-wrapping-paper-card-poster-banner-flyer.jpg?s=612x612&w=0&k=20&c=eVW2LY0e1WMIDANzfLKBZd0YKYndv6Cb0-2_LfK9J_A= ")
+  
 }
 
 #app {
@@ -9,13 +10,16 @@ body {
 }
 
 .card {
+  font-family: cursive;
   margin: 10px;
+  background-color: lightcoral
 }
 
 form {
   margin: 20px;
+  
 }
 
 .buttons {
-  padding-left: 385px;
+  padding-left: 470px;
 }
