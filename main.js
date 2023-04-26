@@ -242,7 +242,7 @@ const pets = [
       imageUrl: "https://images.ctfassets.net/cnu0m8re1exe/59qssnh6iHfxY2r3FrctNZ/195cca2a860caed3b434a2d3de1ea555/trex.jpg?fm=jpg&fl=progressive&w=660&h=433&fit=fill"
     }
   ];
-  
+
   const renderToDom = (divId, htmlToRender) => {
     const selectedDiv = document.querySelector(divId);
     selectedDiv.innerHTML = htmlToRender;
@@ -340,6 +340,7 @@ const pets = [
   const startApp = () => {
     cardsOnDom(pets);
   }
+
 
 
   startApp();
